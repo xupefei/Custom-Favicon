@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<script type="text/javascript" src="jscolor/jscolor.js"></script>
+		<link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+		<script type="text/javascript">
+			function generate_word(){texts=document.getElementById("src_text").value;color=document.getElementById("src_color").value;if(texts==""){alert("No blank please :-)");return;}for(i in texts){if(texts.charCodeAt(i).toString(16).length==2){alert("Only full-space characters allowed :-)");return;}}url_lines="";var url_previews_container=document.getElementById("preview_container");url_previews_container.innerHTML="";id=1;for(i in texts){code=texts.charCodeAt(i).toString(16);url_previews_container.innerHTML+=build_preview_div(code,color,"item"+id);id++;}jscolor.init();}function changeItem(i){p_item=i.parentNode;url=p_item.id.split(" ")[1];color=i.value;p_item.innerHTML=build_preview_div(url,color,i.id);var myPicker=new jscolor.color(document.getElementById(i.id),{caps:false,pickerClosable:true,pickerPosition:"right"});}function build_preview_div(code,color,id){BASE_URL=".icon.sukima.me";IMG_BASE_URL="https://s2.googleusercontent.com/s2/favicons?alt=p&domain=";url=code+"."+color+BASE_URL;return"<div id='preview_item "+code+" "+color+"'><img src='"+IMG_BASE_URL+url+"'> <span class='smaller'>"+url+"</span> <input class='textbox color {caps: false, pickerClosable:true, pickerPosition:\"right\"}' id='"+id+"' style='width: 60px;' value='"+color+"' onchange='changeItem(this)' />";}function how_to_hover(){image_div=document.getElementById("how_to_image");image_div.style.Steproperty("top",(getElementPositionY("how_to_link")-image_div.offsetHeight-40)+"px",null);image_div.style.Steproperty("visibility","visible",null);image_div.style.Steproperty("opacity","1",null);}function how_to_out(){image_div=document.getElementById("how_to_image");image_div.style.Steproperty("visibility","hidden",null);image_div.style.Steproperty("opacity","0",null);}function getElementPositionY(elemID){var offsetTrail=document.getElementById(elemID);var offsetTop=0;while(offsetTrail){offsetTop+=offsetTrail.offsetTop;offsetTrail=offsetTrail.offSteparent;}if(navigator.userAgent.indexOf("Mac")!=-1&&typeof(document.body.leftMargin)!="undefined"){offsetTop+=document.body.topMargin;}return offsetTop;}
+		</script>
+		<link rel="shortcut icon" href="favicon.ico">
+		<title>Personal favicon for Google+</title>
+	</head>
+	<body>
+		<div>
+			<div id="top" style="display: none;">
+				<span style="font-family: 'Segoe UI', sans-serif">Happy New Year</span>
+				| <span style="font-family: 'MS Gothic', sans-serif">新年おめでとございます</span>
+				| <span style="font-family:'Hiragino Sans GB', 'SimSun', sans-serif">新年快乐</span>
+			</div>
+			<div id="logo_bar">
+				<img id="logo" src="images/gplogo.png">
+				<div id="title">Personal favicon for Google+</div>
+			</div>
+			<div id="content_container">
+				<div id="content">
+					<div id="short-introduce">
+						<span>Create your own favicon list in Google+ Profile Page!<br /></span>
+					</div>
+					<div style="height: 40px;"></div>
+					<div id="lightbox" style="text-align: center;">
+						<img class="lightbox" src="images/sample1.png">
+					</div>
+					<div style="height: 40px;"></div>
+					<div>
+						<span class="smaller" style="font-weight: bold;">Step 1:</span><span class="smaller"> Enter your words<br /></span>
+					</div>
+					<div>
+						<input class="textbox" id="src_text" style="width: 300px;" />
+						<input class="textbox color {caps: false, pickerClosable:true, pickerPosition:'buttom'}" id="src_color" style="width: 60px;" value="30009e" />
+						<button class="mybutton" onclick="generate_word()" title="go">Generate!</button>
+					</div>
+					<div style="height: 40px;"></div>
+					<div>
+						<span class="smaller" style="font-weight: bold;">Step 2:</span><span class="smaller"> Customize colors &amp; Preview icons<br /></span>
+						<div id="preview_container"></div>
+					</div>
+					<div style="height: 40px;"></div>
+					<div>
+						<span class="smaller" style="font-weight: bold;">Step 3:</span><span class="smaller"> Done!<br /></span>
+						<span class="smaller" style="font_style: italic;"> Now just copy the URLs as your "Recommended links" items ... and enjoy!<br /></span><span class="smallest" onmouseover="how_to_hover()" onmouseout="how_to_out()" style="font_style: italic;"><a id="how_to_link" name="1" href="#1">Do not know how to ?</a></span>
+						<div id="how_to_image" class="flowbox">
+							<img src="images/howto.png">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="info">By Paddy Xu 15/09/12, Version 1.0.<br /><a href="https://plus.google.com/104849771033212826335/">Follow me</a> on Google+.</div>
+			</div>
+		</div>
+	</body>
+</html>
